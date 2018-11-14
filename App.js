@@ -1,16 +1,16 @@
-import React,{ Component } from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 
 export default class App extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = {firstValue: 0, secondValue: 0, sum: 0};
+    this.state = { firstValue:'', secondValue:'', sum: 0 };
   }
 
   plusButton = () => {
     this.setState({
-    sum: parseInt(this.state.firstValue) + parseInt(this.state.secondValue)
+      sum: parseInt(this.state.firstValue) + parseInt(this.state.secondValue)
     });
   }
   minusButton = () => {
@@ -24,22 +24,26 @@ export default class App extends React.Component {
       <View style={styles.container}>
 
         <Text>Result: {this.state.sum}</Text>
-        <TextInput keyboardType ="numeric" style={{width: 200, borderColor: 'gray',
-          borderWidth: 2}}
-          onChangeText={(firstValue) => this.setState({firstValue})}
-          value={this.state.firstValue} 
-          />
-        <TextInput keyboardType="numeric" style={{width: 200, borderColor: 'gray',
-          borderWidth: 2}}
-          onChangeText={(secondValue) => this.setState({secondValue})}
+        <TextInput keyboardType="numeric" style={{
+          width: 200, borderColor: 'gray',
+          borderWidth: 2
+        }}
+          onChangeText={(firstValue) => this.setState({ firstValue })}
+          value={this.state.firstValue}
+        />
+        <TextInput keyboardType="numeric" style={{
+          width: 200, borderColor: 'gray',
+          borderWidth: 2
+        }}
+          onChangeText={(secondValue) => this.setState({ secondValue })}
           value={this.state.secondValue} />
-          
+
         <View style={styles.button}>
-          <Button onPress={this.plusButton} title="+" color="#ffffff"/>
-         
+          <Button onPress={this.plusButton} title="+" color="#ffffff" />
+
         </View>
         <View style={styles.button}>
-          <Button onPress={this.minusButton} title="-" color="#ffffff"/>
+          <Button onPress={this.minusButton} title="-" color="#ffffff" />
         </View>
       </View>
     );
